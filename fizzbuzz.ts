@@ -1,5 +1,5 @@
 // This is our main function
-function fizzbuzz() {
+function fizzbuzz() :void {
     console.log("Hello, World!");
 
     // Put your code here...

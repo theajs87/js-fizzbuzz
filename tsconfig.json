@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "module": "ESNext", // tell tsc complier use esm module
+    "moduleResolution": "Node10", // find file use CommonJS require
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "outDir": "dist"
+  },
+  "include": ["src/**/*"]
+}
