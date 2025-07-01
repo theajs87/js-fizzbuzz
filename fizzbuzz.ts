@@ -4,10 +4,21 @@ function fizzbuzz() :void {
 
     // Put your code here...
     for (let i = 1; i < 101; i++){
-        if (!(i % 15)) console.log("FizzBuzz");
-        else if (!(i % 3)) console.log("Fizz");
-        else if (!(i % 5)) console.log("Buzz");
-        else console.log(i)
+        let res: string = ""
+
+        if (i % 3 === 0) {
+            res = res + "Fizz"
+        }
+        if (i % 5 === 0) {
+            res = res + "Buzz"
+        }
+        if (i % 7 === 0) {
+            res = res + "Bang"
+        }
+        if (res === "") {
+            res = res + i
+        }
+        console.log(res)
     }
 }
 
