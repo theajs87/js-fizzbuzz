@@ -1,30 +1,36 @@
 // This is our main function
-function fizzbuzz() :void {
-    console.log("Hello, World!");
+function fizzbuzz(): void {
+  console.log('Hello, World!');
 
-    // Put your code here...
-    for (let i = 1; i < 101; i++){
-        let res: string = ""
+  // Put your code here...
+  for (let i = 1; i < 256; i++) {
+    const res = [];
 
-        if (i % 11 === 0){
-            res = res + "Bong"
-            console.log(res)
-            continue;
-        }
-        if (i % 3 === 0) {
-            res = res + "Fizz"
-        }
-        if (i % 5 === 0) {
-            res = res + "Buzz"
-        }
-        if (i % 7 === 0) {
-            res = res + "Bang"
-        }
-        if (res === "") {
-            res = res + i
-        }
-        console.log(res)
+    if (i % 13 === 0) {
+      res.unshift('Fezz');
     }
+    if (i % 3 === 0) {
+      res.unshift('Fizz');
+    }
+    if (i % 11 === 0) {
+      res.push('Bong');
+      console.log(res.join(''));
+      continue;
+    }
+    if (i % 5 === 0) {
+      res.push('Buzz');
+    }
+    if (i % 7 === 0) {
+      res.push('Bang');
+    }
+    if (i % 17 === 0){
+      res.reverse()
+    }
+    if (!res.length) {
+      res.push(i);
+    }
+    console.log(res.join(''));
+  }
 }
 
 // Now, we run the main function:
