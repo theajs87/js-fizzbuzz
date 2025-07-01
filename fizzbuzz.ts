@@ -6,6 +6,11 @@ function fizzbuzz() :void {
     for (let i = 1; i < 101; i++){
         let res: string = ""
 
+        if (i % 11 === 0){
+            res = res + "Bong"
+            console.log(res)
+            continue;
+        }
         if (i % 3 === 0) {
             res = res + "Fizz"
         }
