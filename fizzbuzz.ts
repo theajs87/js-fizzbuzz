@@ -4,7 +4,7 @@ function fizzbuzz(): void {
 
   // Put your code here...
   for (let i = 1; i < 256; i++) {
-    const res = [];
+    const res: string[] = [];
 
     if (i % 13 === 0) {
       res.unshift('Fezz');
@@ -27,7 +27,7 @@ function fizzbuzz(): void {
       res.reverse()
     }
     if (!res.length) {
-      res.push(i);
+      res.push(i.toString());
     }
     console.log(res.join(''));
   }
