@@ -6,25 +6,31 @@ function fizzbuzz(): void {
     let initrules : [number, RuleFunction][]= [
         [3, (res) => {
             res.push('Fizz');
-            return res}],
+            return res;
+        }],
         [5, (res) => {
             res.push('Buzz');
-            return res}],
+            return res;
+        }],
         [7, (res) => {
             res.push('Bang');
-            return res}],
+            return res;
+        }],
         [11, (res) => {
             res.length = 0;
             res.push('Bong');
-            return res}],
+            return res;
+        }],
         [13, (res) => {
             let position = res.findIndex(beforeB);
             if (position === -1){
-                res.push('Fezz')
+                res.push('Fezz');
             }
             return res.splice(position, 0, 'Fezz');
         }],
-        [17, (res)=>{return res.reverse()}]
+        [17, (res)=>{
+            return res.reverse();
+        }]
     ];
 
     const readline = require('readline-sync');
