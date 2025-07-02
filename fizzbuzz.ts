@@ -8,43 +8,41 @@ function fizzbuzz(): void {
   let j = parseInt(upto)
 
   for (let i = 1; i < j + 1; i++) {
-    const res2: string[] = rules(i);
-    console.log(res2.join(''));
+    console.log(rules(i).join(''));
   }
 }
 
 function rules(i) {
     let res: string[] = [];
-    // let ruleslist = [
-    //     [3, 'Fizz'],
-    //     [5, 'Buzz'],
-    //     [7, 'Bang'],
-    // ];
+    let ruleslist : [number,string,string][]= [
+        [3, 'Fizz', ''],
+        [5, 'Buzz', ''],
+        [7, 'Bang', ''],
+        [11, 'Bong', 'reset'],
+        [13, 'Fezz', 'before B'],
+        [17, '', 'reverse']
+    ];
 
+    for (let rule of ruleslist) {
+        if (i % rule[0] === 0) {
+            if (rule[2] === 'reset') {
+                res = [];
+            }
+            res.push(rule[1]);
+            if (rule[2] === 'before B') {
+                let position = res.findIndex(beforeB);
+                res.splice(position, 0, rule[1]);
+            }
+            if (rule[2] === 'reverse') {
+                res.reverse();
+            }
+        }
+    }
 
-    if (i % 3 === 0) {
-      res.push('Fizz');
-    }
-    if (i % 5 === 0) {
-      res.push('Buzz');
-    }
-    if (i % 7 === 0) {
-      res.push('Bang');
-    }
-    if (i % 11 === 0) {
-      res = [];
-      res.push('Bong');
-    }
-    if (i % 13 === 0) {
-      let position = res.findIndex(beforeB);
-      res.splice(position, 0, 'Fezz');
-    }
-    if (i % 17 === 0){
-      res.reverse()
-    }
     if (!res.length) {
-      res.push(i.toString());
+        res.push(i.toString());
     }
+
     return res
 }
 
