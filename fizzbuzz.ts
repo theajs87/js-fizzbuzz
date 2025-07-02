@@ -9,13 +9,13 @@ function fizzbuzz(): void {
     if (i % 13 === 0) {
       res.unshift('Fezz');
     }
-    if (i % 3 === 0) {
-      res.unshift('Fizz');
-    }
     if (i % 11 === 0) {
       res.push('Bong');
       console.log(res.join(''));
       continue;
+    }
+    if (i % 3 === 0) {
+      res.unshift('Fizz');
     }
     if (i % 5 === 0) {
       res.push('Buzz');
