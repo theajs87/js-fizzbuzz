@@ -3,8 +3,6 @@ function fizzbuzz(): void {
     console.log('Hello, World!');
 
   // Put your code here...
-    type RuleFunction = (prev: string[]) => string[]
-
     let initrules : [number, RuleFunction][]= [
         [3, (res) => {
             res.push('Fizz');
@@ -31,16 +29,9 @@ function fizzbuzz(): void {
 
     const readline = require('readline-sync');
     let upto = readline.question("What number would you like to go up to? ");
-    let whichrules = readline.question("Which rules would you like to keep? (for 3, 5, 7, 11, 13, 17)\n \
-        Please type the numbers of rules you want to keep, separated by spaces. e.g. '3 5 11' ")
+    let whichrules = readline.question(`Which rules would you like to keep? (for 3, 5, 7, 11, 13, 17)
+        Please type the numbers of rules you want to keep, separated by spaces. e.g. '3 5 11' `)
     const keeprules = whichrules.split(" ").map(Number);
-
-    // let addrules = readline.question("How many rules would you like to add? (0 is a valid input)")
-    // if (parseInt(addrules)) {
-    //     for (let j = 1; j < parseInt(addrules) + 1; j++) {
-
-    //     }
-    // }
 
     let ruleslist: [number, RuleFunction][] = initrules.filter((rule) => keeprules.includes(rule[0]))
 
@@ -49,20 +40,22 @@ function fizzbuzz(): void {
     }
 }
 
-function apply_rules(i, ruleslist) {
+function apply_rules(idx, ruleslist) {
     let res: string[] = [];
 
     for (let rule of ruleslist) {
-        if (i % rule[0] === 0) {
+        if (idx % rule[0] === 0) {
             res = rule[1](res)
         }
     }
     if (!res.length) {
-        res.push(i.toString());
+        res.push(idx.toString());
     }
 
     return res
 }
+
+type RuleFunction = (prev: string[]) => string[]
 
 function beforeB(value, index, array) {
     return value.startsWith("B")
