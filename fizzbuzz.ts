@@ -3,17 +3,13 @@ function fizzbuzz(): void {
   console.log('Hello, World!');
 
   // Put your code here...
-  for (let i = 1; i < 256; i++) {
+  const readline = require('readline-sync');
+  let upto = readline.question("What number would you like to go up to? ");
+  let j = parseInt(upto)
+
+  for (let i = 1; i < j + 1; i++) {
     const res: string[] = [];
 
-    if (i % 13 === 0) {
-      res.unshift('Fezz');
-    }
-    if (i % 11 === 0) {
-      res.push('Bong');
-      console.log(res.join(''));
-      continue;
-    }
     if (i % 3 === 0) {
       res.unshift('Fizz');
     }
@@ -28,6 +24,13 @@ function fizzbuzz(): void {
     }
     if (!res.length) {
       res.push(i.toString());
+    }
+    if (i % 11 === 0) {
+      res.length = 0;
+      res.push('Bong');
+    }
+    if (i % 13 === 0) {
+      res.unshift('Fezz');
     }
     console.log(res.join(''));
   }
